@@ -6,6 +6,6 @@ urlpatterns = [
     path('contact/', views.contact, name="ContactUs"),
     path('tracker/', views.tracker, name="TrackingStage"),
     path('search/', views.search, name="search"),
-    path('productview/', views.productView, name="productview"),
+    path('products/<int:myid>', views.productView, name="productview"),
     path('checkout/', views.checkout, name="checkout"),
 ]
