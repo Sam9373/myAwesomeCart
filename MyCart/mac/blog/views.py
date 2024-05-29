@@ -8,8 +8,11 @@ def index(request):
     return render(request,'blog/index.html')
 
 def blogpost(request,id):
-    post=Blogpost.objects.filter(post_id = id)[0]
-    print(post)
-    return render(request,'blog/blogpost.html')
+    try:
+        post = Blogpost.objects.get(post_id=id)
+         print(post)
+            return render(request, 'blog/blogpost.html', {'post': post})
+    except Blogpost.DoesNotExist:
+            raise Http404("Blog post does not exist")
 
 
